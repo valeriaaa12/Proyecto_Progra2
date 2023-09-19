@@ -69,7 +69,6 @@ public class paralelogramo extends Figura implements Serializable{
         this.variables = variables;
     }
 
-    @Override
     public String code() {
         String codigo = "";
         for (Variables variable : variables) {

@@ -56,6 +56,7 @@ import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
 import java.util.Map;
 import javax.imageio.ImageIO;
+import javax.swing.SwingConstants;
 import javax.swing.tree.TreeNode;
 
 /**
@@ -192,17 +193,18 @@ public class Mainp extends javax.swing.JFrame {
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         jButton11 = new javax.swing.JButton();
+        jButton8 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenu3 = new javax.swing.JMenu();
         jMenu4 = new javax.swing.JMenu();
-        jMenu9 = new javax.swing.JMenu();
-        jMenu10 = new javax.swing.JMenu();
-        jMenu11 = new javax.swing.JMenu();
-        jMenu5 = new javax.swing.JMenu();
+        jMenuItem10 = new javax.swing.JMenuItem();
+        jMenuItem11 = new javax.swing.JMenuItem();
+        jMenuItem12 = new javax.swing.JMenuItem();
+        jMenuItem8 = new javax.swing.JMenuItem();
+        jMenuItem9 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
-        jMenu7 = new javax.swing.JMenu();
-        jMenu8 = new javax.swing.JMenu();
+        jMenuItem13 = new javax.swing.JMenuItem();
+        jMenuItem14 = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
         frame_uml = new javax.swing.JFrame();
         jPanel2 = new javax.swing.JPanel();
@@ -620,73 +622,81 @@ public class Mainp extends javax.swing.JFrame {
         });
         ab_panel1.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 630, -1, -1));
 
+        jButton8.setText("Pegar");
+        jButton8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton8MouseClicked(evt);
+            }
+        });
+        ab_panel1.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 660, -1, -1));
+
         jMenuBar1.setBackground(new java.awt.Color(255, 102, 204));
 
         jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/4856668.png"))); // NOI18N
 
-        jMenu3.setText("Guardar");
-        jMenu3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenu3ActionPerformed(evt);
-            }
-        });
-        jMenu1.add(jMenu3);
-
         jMenu4.setText("Guardar como Imagen");
 
-        jMenu9.setText("PNG");
-        jMenu9.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItem10.setText("PNG");
+        jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenu9ActionPerformed(evt);
+                jMenuItem10ActionPerformed(evt);
             }
         });
-        jMenu4.add(jMenu9);
+        jMenu4.add(jMenuItem10);
 
-        jMenu10.setText("JPG");
-        jMenu10.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItem11.setText("Otro");
+        jMenuItem11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenu10ActionPerformed(evt);
+                jMenuItem11ActionPerformed(evt);
             }
         });
-        jMenu4.add(jMenu10);
+        jMenu4.add(jMenuItem11);
 
-        jMenu11.setText("Otro");
-        jMenu11.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItem12.setText("JPG");
+        jMenuItem12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenu11ActionPerformed(evt);
+                jMenuItem12ActionPerformed(evt);
             }
         });
-        jMenu4.add(jMenu11);
+        jMenu4.add(jMenuItem12);
 
         jMenu1.add(jMenu4);
 
-        jMenu5.setText("Guardar como PDF");
-        jMenu5.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItem8.setText("Guardar como PDF");
+        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenu5ActionPerformed(evt);
+                jMenuItem8ActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenu5);
+        jMenu1.add(jMenuItem8);
+
+        jMenuItem9.setText("jMenuItem9");
+        jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem9ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem9);
 
         jMenuBar1.add(jMenu1);
 
         jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/4080838.png"))); // NOI18N
 
-        jMenu7.setText("Abrir");
-        jMenu7.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItem13.setText("Nuevo");
+        jMenuItem13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenu7ActionPerformed(evt);
+                jMenuItem13ActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenu7);
+        jMenu2.add(jMenuItem13);
 
-        jMenu8.setText("Nuevo");
-        jMenu8.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItem14.setText("Abrir");
+        jMenuItem14.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenu8ActionPerformed(evt);
+                jMenuItem14ActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenu8);
+        jMenu2.add(jMenuItem14);
 
         jMenuBar1.add(jMenu2);
 
@@ -1006,6 +1016,11 @@ public class Mainp extends javax.swing.JFrame {
         pm_Figuras.add(jSeparator3);
 
         copiar1.setText("Copiar");
+        copiar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                copiar1ActionPerformed(evt);
+            }
+        });
         pm_Figuras.add(copiar1);
 
         frame_variables.setBackground(new java.awt.Color(204, 204, 255));
@@ -1264,6 +1279,11 @@ public class Mainp extends javax.swing.JFrame {
         pm_UML.add(jSeparator4);
 
         copiar2.setText("Copiar");
+        copiar2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                copiar2ActionPerformed(evt);
+            }
+        });
         pm_UML.add(copiar2);
 
         jPanel3.setBackground(new java.awt.Color(204, 204, 255));
@@ -1475,6 +1495,11 @@ public class Mainp extends javax.swing.JFrame {
         pp_pegarclase.add(pegar1);
 
         pegar2.setText("Pegar");
+        pegar2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pegar2ActionPerformed(evt);
+            }
+        });
         pp_pegarflujo.add(pegar2);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -2322,8 +2347,9 @@ public class Mainp extends javax.swing.JFrame {
             }
             texto1.setText(codigo);*/
             try {
+                DefaultTreeModel tm = (DefaultTreeModel) jTree1.getModel();
 
-                String C = imprimirNodo((TreeNode) jTree1.getModel().getRoot());
+                String C = imprimirNodoDecision("", (DefaultMutableTreeNode) tm.getRoot(), "");
                 texto1.setText(C);
                 JOptionPane.showMessageDialog(canvas1, "Codigo Generado Exitosamente");
             } catch (Exception e) {
@@ -2558,75 +2584,6 @@ public class Mainp extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButton13MouseClicked
 
-    private void jMenu3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu3ActionPerformed
-        // TODO add your handling code here:
-        panelActual = canvas1;
-        Dialogo_Actual = frame_dflujo;
-        Guardar("Diagrama de Flujo", "xd", "Diagramas De Flujo");
-    }//GEN-LAST:event_jMenu3ActionPerformed
-
-    private void jMenu7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu7ActionPerformed
-        // TODO add your handling code here:
-        panelActual = canvas1;
-        Dialogo_Actual = frame_dflujo;
-        JFileChooser jfc = new JFileChooser();
-        FileNameExtensionFilter filtro = new FileNameExtensionFilter("Diagramas De Flujo", "xd");
-        jfc.addChoosableFileFilter(filtro);
-        int seleccion = jfc.showOpenDialog(this.Dialogo_Actual);
-        String Extension = jfc.getSelectedFile().getPath();//este comando obtiene la ruta completa del archivo seleccionado y la almacena en la variable Extension.
-        String Extension2 = Extension.substring(Extension.length() - 4, Extension.length());// Esto se hace para obtener la extensión del archivo seleccionado.
-        if (Extension2.equalsIgnoreCase("xd")) {
-            Abrir(Extension);
-            texto1.setText("");
-        } else {
-            JOptionPane.showMessageDialog(Dialogo_Actual, "El Tipo de formato no es reconocible para este tipo de diagrama");
-        }
-    }//GEN-LAST:event_jMenu7ActionPerformed
-
-    private void jMenu8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu8ActionPerformed
-        // TODO add your handling code here:
-        int respuesta = JOptionPane.showConfirmDialog(this.canvas1, "¿Seguro de que desea eliminar todos los elementos del panel?", "Confirm", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-        if (respuesta == JOptionPane.OK_OPTION) {
-            texto1.setText("");
-            canvas1.removeAll();
-            canvas1.repaint();
-            JOptionPane.showMessageDialog(canvas1, "Se ha Limpiado el area de trabajo");
-        }
-    }//GEN-LAST:event_jMenu8ActionPerformed
-
-    private void jMenu5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu5ActionPerformed
-        // TODO add your handling code here:
-        GenerarPDF(texto1.getText(), canvas1, 1);
-    }//GEN-LAST:event_jMenu5ActionPerformed
-
-    private void jMenu9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu9ActionPerformed
-        // TODO add your handling code here:
-        CrearIMG(canvas1, "png");
-    }//GEN-LAST:event_jMenu9ActionPerformed
-
-    private void jMenu10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu10ActionPerformed
-        // TODO add your handling code here:
-        CrearIMG(canvas1, "jpg");
-    }//GEN-LAST:event_jMenu10ActionPerformed
-
-    private void jMenu11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu11ActionPerformed
-        // TODO add your handling code here:
-        String Opcion = "";
-        String[] Opciones = {"bmp", "gif", "jpeg"};
-        Opcion = (String) JOptionPane.showInputDialog(null,
-                "Seleccione un formato de imagen", //Mensaje
-                "                                  IMAGEN",//TITULO
-                JOptionPane.QUESTION_MESSAGE,
-                null,
-                Opciones,
-                Opciones[0]);
-        if (Opcion == null) {
-            JOptionPane.showMessageDialog(frame_dflujo, "No se ha seleccionado un formato");
-        } else {
-            CrearIMG(canvas1, Opcion);
-        }
-    }//GEN-LAST:event_jMenu11ActionPerformed
-
     private void canvas_UMLMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_canvas_UMLMouseClicked
         // TODO add your handling code here:
         if (evt.isMetaDown()) {
@@ -2776,6 +2733,208 @@ public class Mainp extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jMenu6MouseClicked
 
+    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
+        // TODO add your handling code here:
+        GenerarPDF(texto1.getText(), canvas1, 1);
+    }//GEN-LAST:event_jMenuItem8ActionPerformed
+
+    private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
+        // TODO add your handling code here:
+        panelActual = canvas1;
+        Dialogo_Actual = frame_dflujo;
+        Guardar("Diagrama de Flujo", "xd", "Diagramas De Flujo");
+    }//GEN-LAST:event_jMenuItem9ActionPerformed
+
+    private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
+        // TODO add your handling code here:
+        CrearIMG(canvas1, "png");
+    }//GEN-LAST:event_jMenuItem10ActionPerformed
+
+    private void jMenuItem11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem11ActionPerformed
+        // TODO add your handling code here:
+        String Opcion = "";
+        String[] Opciones = {"bmp", "gif", "jpeg"};
+        Opcion = (String) JOptionPane.showInputDialog(null,
+                "Seleccione un formato de imagen", //Mensaje
+                "                                  IMAGEN",//TITULO
+                JOptionPane.QUESTION_MESSAGE,
+                null,
+                Opciones,
+                Opciones[0]);
+        if (Opcion == null) {
+            JOptionPane.showMessageDialog(frame_dflujo, "No se ha seleccionado un formato");
+        } else {
+            CrearIMG(canvas1, Opcion);
+        }
+    }//GEN-LAST:event_jMenuItem11ActionPerformed
+
+    private void jMenuItem12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem12ActionPerformed
+        // TODO add your handling code here:
+        CrearIMG(canvas1, "jpg");
+    }//GEN-LAST:event_jMenuItem12ActionPerformed
+
+    private void jMenuItem13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem13ActionPerformed
+        // TODO add your handling code here:
+        int respuesta = JOptionPane.showConfirmDialog(this.canvas1, "¿Seguro de que desea eliminar todos los elementos del panel?", "Confirm", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        if (respuesta == JOptionPane.OK_OPTION) {
+            texto1.setText("");
+            canvas1.removeAll();
+            canvas1.repaint();
+            JOptionPane.showMessageDialog(canvas1, "Se ha Limpiado el area de trabajo");
+        }
+    }//GEN-LAST:event_jMenuItem13ActionPerformed
+
+    private void jMenuItem14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem14ActionPerformed
+        // TODO add your handling code here:
+        panelActual = canvas1;
+        Dialogo_Actual = frame_dflujo;
+        JFileChooser jfc = new JFileChooser();
+        FileNameExtensionFilter filtro = new FileNameExtensionFilter("Diagramas De Flujo", "xd");
+        jfc.addChoosableFileFilter(filtro);
+        int seleccion = jfc.showOpenDialog(this.Dialogo_Actual);
+        String Extension = jfc.getSelectedFile().getPath();//este comando obtiene la ruta completa del archivo seleccionado y la almacena en la variable Extension.
+        String Extension2 = Extension.substring(Extension.length() - 4, Extension.length());// Esto se hace para obtener la extensión del archivo seleccionado.
+        if (Extension2.equalsIgnoreCase("xd")) {
+            Abrir(Extension);
+            texto1.setText("");
+        } else {
+            JOptionPane.showMessageDialog(Dialogo_Actual, "El Tipo de formato no es reconocible para este tipo de diagrama");
+        }
+    }//GEN-LAST:event_jMenuItem14ActionPerformed
+
+    private void pegar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pegar2ActionPerformed
+        // TODO add your handling code here:
+        for (JLabel Label1 : ArrayCopiar) {
+            if (Label1 == null) {
+                JOptionPane.showMessageDialog(canvas1, "No se encuentra ningun elemento en memoria, seleccione un objeto para Copiar");
+            } else {
+
+                if (Label1 instanceof Rombo) {
+                    Rombo P = new Rombo();
+                    P.Copiar(P, Label1);
+                    Drag(P, 1);
+                    canvas1.add(P);
+                } else if (Label1 instanceof documento) {
+                    documento P = new documento();
+                    P.Copiar(P, Label1);
+                    Drag(P, 1);
+                    canvas1.add(P);
+                } else if (Label1 instanceof Rectangulo2) {
+                    Rectangulo2 P = new Rectangulo2();
+                    P.Copiar(P, Label1);
+                    Drag(P, 1);
+                    canvas1.add(P);
+                } else if (Label1 instanceof if_no) {
+                    if_no P = new if_no();
+                    P.Copiar(P, Label1);
+                    Drag(P, 1);
+                    canvas1.add(P);
+                } else if (Label1 instanceof if_fin) {
+                    if_fin P = new if_fin();
+                    P.Copiar(P, Label1);
+                    Drag(P, 1);
+                    canvas1.add(P);
+                } else if (Label1 instanceof Rectangulo) {
+                    Rectangulo P = new Rectangulo();
+                    P.Copiar(P, Label1);
+                    Drag(P, 1);
+                    canvas1.add(P);
+                } else if (Label1 instanceof fin_bucle) {
+                    fin_bucle P = new fin_bucle();
+                    P.Copiar(P, Label1);
+                    Drag(P, 1);
+                    canvas1.add(P);
+                } else if (Label1 instanceof Circulo) {
+                    Circulo P = new Circulo();
+                    P.Copiar(P, Label1);
+                    Drag(P, 1);
+                    canvas1.add(P);
+
+                } else if (Label1 instanceof paralelogramo) {
+                    paralelogramo P = new paralelogramo();
+                    P.Copiar(P, Label1);
+                    Drag(P, 1);
+                    canvas1.add(P);
+                }
+                canvas1.repaint();
+            }
+        }
+    }//GEN-LAST:event_pegar2ActionPerformed
+
+    private void copiar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_copiar1ActionPerformed
+        // TODO add your handling code here:
+        //ArrayCopiar = new ArrayList();
+        ArrayCopiar.add(Label1);
+        JOptionPane.showMessageDialog(this.canvas1, "COPIADO");
+        System.out.println(ArrayCopiar.toString());
+    }//GEN-LAST:event_copiar1ActionPerformed
+
+    private void jButton8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton8MouseClicked
+        // TODO add your handling code here:
+        for (JLabel Label1 : ArrayCopiar) {
+            if (Label1 == null) {
+                JOptionPane.showMessageDialog(canvas1, "No se encuentra ningun elemento en memoria, seleccione un objeto para Copiar");
+            } else {
+                Figura U = new Figura();
+                if (Label1 instanceof paralelogramo) {
+
+                    paralelogramo P = new paralelogramo();
+                    U.Copiar(P, Label1);
+                    Drag(P, 1);
+                    canvas1.add(P);
+                } else if (Label1 instanceof documento) {
+                    documento P = new documento();
+                    U.Copiar(P, Label1);
+                    Drag(P, 1);
+                    canvas1.add(P);
+                } else if (Label1 instanceof Rombo) {
+                    Rombo P = new Rombo();
+                    U.Copiar(P, Label1);
+                    Drag(P, 1);
+                    canvas1.add(P);
+                } else if (Label1 instanceof Circulo) {
+                   
+                    Circulo P = new Circulo();
+                    System.out.println(P.toString());
+                    U.Copiar(P, Label1);
+                    Drag(P, 1);
+                    canvas1.add(P);
+                } else if (Label1 instanceof Rectangulo) {
+                    Rectangulo P = new Rectangulo();
+                    U.Copiar(P, Label1);
+                    Drag(P, 1);
+                    canvas1.add(P);
+                } else if (Label1 instanceof if_no) {
+                    if_no P = new if_no();
+                    U.Copiar(P, Label1);
+                    Drag(P, 1);
+                    canvas1.add(P);
+                } else if (Label1 instanceof Rectangulo2) {
+                    Rectangulo2 P = new Rectangulo2();
+                    U.Copiar(P, Label1);
+                    Drag(P, 1);
+                    canvas1.add(P);
+                } else {
+
+                    Figura P = new Figura();
+                    U.Copiar(P, Label1);
+
+                    Drag(P, 1);
+                    this.canvas1.add(P);
+
+                }
+                canvas1.repaint();
+
+            }
+        }
+    }//GEN-LAST:event_jButton8MouseClicked
+
+    private void copiar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_copiar2ActionPerformed
+        // TODO add your handling code here:
+        ArrayCopiar.add(Label1);
+        JOptionPane.showMessageDialog(this.canvas1, "COPIADO");
+    }//GEN-LAST:event_copiar2ActionPerformed
+
     private String codigo2(JLabel x, String codigo) {
         String z = "";
         if (x instanceof paralelogramo) {
@@ -2829,9 +2988,13 @@ public class Mainp extends javax.swing.JFrame {
 
     public void Drag(JLabel label, int n) {
         //se agrega un ml para escuchar los eventos del mouse que se den en el label
+        Label1 = label;
+
         label.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 Label1 = label;
+
                 if ((label.getLocation().x + evt.getX() - label.getWidth() / 2) >= 0
                         && (label.getLocation().x + evt.getX() - label.getWidth() / 2) <= 900) {
                     label.setLocation(label.getLocation().x + evt.getX() - label.getWidth() / 2,
@@ -3155,14 +3318,12 @@ public class Mainp extends javax.swing.JFrame {
         for (int j = i + 1; j < elements.size() - 1; j++) {
             Figura element2 = elements.get(j);
             if (element2 instanceof Rombo) {
-                if (((Rombo) element).getIndex() != ((if_no) element2).getIndex() && cont_ifno > 0) {
-                    DefaultMutableTreeNode hijo2 = new DefaultMutableTreeNode();
-                    hijo2 = construirArbol3(elements, i, hijo, element2);
-                    hijo2.setUserObject(element2);
-                    j += returnIndice(i, elements, element2) - 2;
-                } else if (((if_no) element).getIndex() == ((Rombo) element2).getIndex()) {
-                    break;
-                }
+
+                DefaultMutableTreeNode hijo2 = new DefaultMutableTreeNode();
+                hijo2 = construirArbol3(elements, i, hijo, element2);
+                hijo2.setUserObject(element2);
+                j += returnIndice(i, elements, element2) - 2;
+
             } else if (element2 instanceof if_no) {
                 DefaultMutableTreeNode hijo2 = new DefaultMutableTreeNode();
                 hijo2 = construirArbol4(figuras, j, hijo2, element2);
@@ -3417,41 +3578,27 @@ public class Mainp extends javax.swing.JFrame {
         }
         return i;
     }
-    
 
-    public String imprimirNodo(TreeNode nodo) {
-        String codigo = "";
+    public String imprimirNodoDecision(String tab, DefaultMutableTreeNode nodo, String code) {
+        String Clases = "";
         for (int i = 0; i < nodo.getChildCount(); i++) {
             Object v1 = nodo.getChildAt(i);
             nodo_seleccionado = (DefaultMutableTreeNode) v1;
-            if (nodo_seleccionado.getUserObject() instanceof Rombo) {
-                codigo += tabulateString(((Rombo) nodo_seleccionado.getUserObject()).code());
-          
+            if (nodo_seleccionado.getUserObject() instanceof Figura) {
+                String tab2 = tab + "\t";
+                // code += tab + ((Figura) nodo_seleccionado.getUserObject()).code() + "\n";
+                if (nodo_seleccionado.getChildCount() > 0) {
+                    for (int j = 0; j < nodo_seleccionado.getChildCount(); j++) {
+                        DefaultMutableTreeNode hijo = (DefaultMutableTreeNode) nodo_seleccionado.getChildAt(j);
+                        code += imprimirNodoDecision(tab2, hijo, "") + "\n";
+                    }
+
+                }
             }
-            if (nodo_seleccionado.getUserObject() instanceof Rectangulo) {
-                codigo +=  tabulateString(((Rectangulo) nodo_seleccionado.getUserObject()).code());
-               
-            }
-            if (nodo_seleccionado.getUserObject() instanceof Rectangulo2) {
-                codigo += tabulateString( ((Rectangulo2) nodo_seleccionado.getUserObject()).code());
-             
-            }
-            if (nodo_seleccionado.getUserObject() instanceof documento) {
-                codigo += tabulateString( ((documento) nodo_seleccionado.getUserObject()).code());
-              
-            }
-            if (nodo_seleccionado.getUserObject() instanceof paralelogramo) {
-                codigo += tabulateString( ((paralelogramo) nodo_seleccionado.getUserObject()).code());
-               
-            }
-            if (nodo_seleccionado.getUserObject() instanceof if_no) {
-                codigo +=  tabulateString(((if_no) nodo_seleccionado.getUserObject()).code());
-             
-            }
-               codigo += "\n";
         }
-        return codigo;
+        return Clases;
     }
+
     public static String tabulateString(String input) {
         StringBuilder tabulated = new StringBuilder();
 
@@ -3540,6 +3687,8 @@ public class Mainp extends javax.swing.JFrame {
     JPanel panelActual;
     JFrame Dialogo_Actual;
     String Nombre_Imprimir;
+    ArrayList<JLabel> ArrayCopiar = new ArrayList();
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel ab_panel1;
     private javax.swing.JTextField atributo;
@@ -3594,6 +3743,7 @@ public class Mainp extends javax.swing.JFrame {
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel1;
@@ -3634,29 +3784,29 @@ public class Mainp extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu10;
-    private javax.swing.JMenu jMenu11;
     private javax.swing.JMenu jMenu12;
     private javax.swing.JMenu jMenu13;
     private javax.swing.JMenu jMenu14;
     private javax.swing.JMenu jMenu16;
     private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
-    private javax.swing.JMenu jMenu7;
-    private javax.swing.JMenu jMenu8;
-    private javax.swing.JMenu jMenu9;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem10;
+    private javax.swing.JMenuItem jMenuItem11;
+    private javax.swing.JMenuItem jMenuItem12;
+    private javax.swing.JMenuItem jMenuItem13;
+    private javax.swing.JMenuItem jMenuItem14;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
+    private javax.swing.JMenuItem jMenuItem8;
+    private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel2;

@@ -58,7 +58,6 @@ public class documento extends Figura implements Serializable {
         this.y = y;
     }
 
-    @Override
     public String code() {
         String codigo="";
         codigo+="print(\"";
@@ -81,6 +80,18 @@ public class documento extends Figura implements Serializable {
         x.setPreferredSize(new Dimension(50, 50));
         x.setSize(100, 61);
 
+    }
+    public void Copiar(JLabel D, JLabel doc) {
+        D.setBackground(doc.getBackground());
+        D.setText(doc.getText());
+        D.setLocation(10, 200);
+        D.setFont(doc.getFont());
+        D.setOpaque(true);
+        D.setIcon(doc.getIcon());
+        D.setHorizontalTextPosition(SwingConstants.CENTER);
+        D.setName(doc.getText() + "-copia");
+        D.setSize(doc.getWidth(), doc.getHeight());
+        System.out.println("Sirve?");
     }
 
 }

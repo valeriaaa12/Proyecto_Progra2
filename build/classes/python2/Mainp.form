@@ -601,6 +601,19 @@
                 </Constraint>
               </Constraints>
             </Component>
+            <Component class="javax.swing.JButton" name="jButton8">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Pegar"/>
+              </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton8MouseClicked"/>
+              </Events>
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                  <AbsoluteConstraints x="750" y="660" width="-1" height="-1"/>
+                </Constraint>
+              </Constraints>
+            </Component>
           </SubComponents>
         </Container>
         <Menu class="javax.swing.JMenuBar" name="jMenuBar1">
@@ -617,53 +630,53 @@
                 </Property>
               </Properties>
               <SubComponents>
-                <Menu class="javax.swing.JMenu" name="jMenu3">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Guardar"/>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenu3ActionPerformed"/>
-                  </Events>
-                </Menu>
                 <Menu class="javax.swing.JMenu" name="jMenu4">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Guardar como Imagen"/>
                   </Properties>
                   <SubComponents>
-                    <Menu class="javax.swing.JMenu" name="jMenu9">
+                    <MenuItem class="javax.swing.JMenuItem" name="jMenuItem10">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="PNG"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenu9ActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem10ActionPerformed"/>
                       </Events>
-                    </Menu>
-                    <Menu class="javax.swing.JMenu" name="jMenu10">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="JPG"/>
-                      </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenu10ActionPerformed"/>
-                      </Events>
-                    </Menu>
-                    <Menu class="javax.swing.JMenu" name="jMenu11">
+                    </MenuItem>
+                    <MenuItem class="javax.swing.JMenuItem" name="jMenuItem11">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Otro"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenu11ActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem11ActionPerformed"/>
                       </Events>
-                    </Menu>
+                    </MenuItem>
+                    <MenuItem class="javax.swing.JMenuItem" name="jMenuItem12">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="JPG"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem12ActionPerformed"/>
+                      </Events>
+                    </MenuItem>
                   </SubComponents>
                 </Menu>
-                <Menu class="javax.swing.JMenu" name="jMenu5">
+                <MenuItem class="javax.swing.JMenuItem" name="jMenuItem8">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Guardar como PDF"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenu5ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem8ActionPerformed"/>
                   </Events>
-                </Menu>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="jMenuItem9">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="jMenuItem9"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem9ActionPerformed"/>
+                  </Events>
+                </MenuItem>
               </SubComponents>
             </Menu>
             <Menu class="javax.swing.JMenu" name="jMenu2">
@@ -673,22 +686,22 @@
                 </Property>
               </Properties>
               <SubComponents>
-                <Menu class="javax.swing.JMenu" name="jMenu7">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Abrir"/>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenu7ActionPerformed"/>
-                  </Events>
-                </Menu>
-                <Menu class="javax.swing.JMenu" name="jMenu8">
+                <MenuItem class="javax.swing.JMenuItem" name="jMenuItem13">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Nuevo"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenu8ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem13ActionPerformed"/>
                   </Events>
-                </Menu>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="jMenuItem14">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Abrir"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem14ActionPerformed"/>
+                  </Events>
+                </MenuItem>
               </SubComponents>
             </Menu>
             <Menu class="javax.swing.JMenu" name="jMenu6">
@@ -1183,6 +1196,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Copiar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="copiar1ActionPerformed"/>
+          </Events>
         </MenuItem>
       </SubComponents>
     </Container>
@@ -1833,6 +1849,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Copiar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="copiar2ActionPerformed"/>
+          </Events>
         </MenuItem>
       </SubComponents>
     </Container>
@@ -2371,6 +2390,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Pegar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pegar2ActionPerformed"/>
+          </Events>
         </MenuItem>
       </SubComponents>
     </Container>

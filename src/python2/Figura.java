@@ -9,6 +9,7 @@ import java.awt.Component;
 import java.io.Serializable;
 import javax.accessibility.AccessibleContext;
 import javax.swing.JLabel;
+import javax.swing.SwingConstants;
 import javax.swing.event.EventListenerList;
 import javax.swing.plaf.ComponentUI;
 
@@ -16,7 +17,7 @@ import javax.swing.plaf.ComponentUI;
  *
  * @author Valeria Romero
  */
-public abstract class Figura extends JLabel implements Serializable{
+public  class Figura extends JLabel implements Serializable{
     protected Color color;
     protected String code;
     protected int x;
@@ -109,12 +110,19 @@ public abstract class Figura extends JLabel implements Serializable{
     public void setAccessibleContext(AccessibleContext accessibleContext) {
         this.accessibleContext = accessibleContext;
     }
-    public abstract  String code();
-
-    @Override
-    public String toString() {
-        return code;
-    }
    
+    public void Copiar(JLabel D, JLabel doc) {
+        System.out.println("PORQUE NO ENTRA AL METODO");
+        D.setBackground(doc.getBackground());
+        D.setText(doc.getText());
+        D.setLocation(10, 200);
+        D.setFont(doc.getFont());
+        D.setOpaque(true);
+        D.setIcon(doc.getIcon());
+        D.setHorizontalTextPosition(SwingConstants.CENTER);
+        D.setName(doc.getText() + "-copia");
+        D.setSize(doc.getWidth(), doc.getHeight());
+        System.out.println("Sirve?");
+    }
     
 }

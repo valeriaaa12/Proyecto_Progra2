@@ -190,8 +190,7 @@ public class Rectangulo extends Figura implements Serializable{
         float result = f1.getValor()/f3.getValor();
         return result;
     }
-    
-    @Override
+  
     public String code() {
         String codigo="";
         codigo+=code;

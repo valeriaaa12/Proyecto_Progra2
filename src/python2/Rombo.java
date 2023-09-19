@@ -93,7 +93,6 @@ public class Rombo extends Figura implements Serializable {
         si.add(x);
     }
 
-    @Override
     public String code() {
         String codigo = "";
         codigo += "if";

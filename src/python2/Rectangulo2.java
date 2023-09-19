@@ -83,7 +83,7 @@ public class Rectangulo2 extends Figura implements Serializable{
         procesos.add(x);
     }
 
-    @Override
+  
     public String code() {
         String codigo = "";
         codigo += code;

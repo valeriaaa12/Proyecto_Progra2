@@ -54,7 +54,6 @@ public class linea2 extends Figura implements Serializable{
         this.y = y;
     }
 
-    @Override
     public String code() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
