@@ -3278,9 +3278,7 @@ public class Mainp extends javax.swing.JFrame {
             Figura element2 = elements.get(j);
             if (element2 instanceof if_no) {
                 if (((Rombo) element).getIndex() != ((if_no) element2).getIndex() && cont_ifno > 0) {
-                hijo = construirArbol4(elements, i, hijo, element);
-                hijo.setUserObject(element);
-                i += returnIndice2(i, elements, element);
+                    hijo.add(new DefaultMutableTreeNode(element2));
                     j++;
                 } else if (((Rombo) element).getIndex() == ((if_no) element2).getIndex()) {
                     break;
@@ -3308,7 +3306,7 @@ public class Mainp extends javax.swing.JFrame {
         for (int j = i + 1; j < elements.size() - 1; j++) {
             Figura element2 = elements.get(j);
             if (element2 instanceof Rombo) {
-                if (((if_no) element).getIndex() != ((Rombo) element2).getIndex()) {
+                if (((if_no) element).getIndex() != ((Rombo) element2).getIndex() && cont_rombo > 0) {
                     hijo.add(new DefaultMutableTreeNode(element2));
                     j++;
                 } else if (((if_no) element).getIndex() == ((Rombo) element2).getIndex()) {
