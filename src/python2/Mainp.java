@@ -2474,7 +2474,7 @@ public class Mainp extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton10MouseClicked
 
     private void jButton11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton11MouseClicked
-      
+
         JTree x;
         x = construirArbol2(figuras);
         DefaultTreeModel tm = (DefaultTreeModel) x.getModel();
@@ -3071,7 +3071,7 @@ public class Mainp extends javax.swing.JFrame {
             if (i < figuras.size() - 1) {
                 if (figuras.get(i) instanceof Rombo) {
                     Rombo P = (Rombo) figuras.get(i);
-                    i += Sentencia(P, i);
+                    //  i += Sentencia(P, i);
                     DefaultMutableTreeNode romboNode = new DefaultMutableTreeNode(figuras.get(i));
                     nodoActual.add(romboNode);
                     // Aquí se agregarán elementos al romboNode según las reglas
@@ -3083,7 +3083,7 @@ public class Mainp extends javax.swing.JFrame {
                 } else if (figuras.get(i) instanceof Rectangulo2) {
                     Rectangulo2 P = (Rectangulo2) figuras.get(i);
                     P.getProcesos().removeAll(P.getProcesos());
-                    i = Bucle(P, i);
+                    //i = Bucle(P, i);
                 } else {
                     // Si no es Rombo, Rectangulo2 ni if_no, crear un nuevo romboNode
                     DefaultMutableTreeNode romboNode = new DefaultMutableTreeNode(figuras.get(i));
@@ -3107,12 +3107,12 @@ public class Mainp extends javax.swing.JFrame {
         assignIndex(figuras);
         for (int i = 0; i < elements.size(); i++) {
             Figura element = elements.get(i);
-            System.out.println("i1: "+i);
+            System.out.println("i1: " + i);
             if (element instanceof Rombo) {
                 DefaultMutableTreeNode hijo = new DefaultMutableTreeNode();
                 hijo = construirArbol3(elements, i, hijo, element);
                 hijo.setUserObject(element);
-                i += returnIndice(i, elements, element)-2;
+                i += returnIndice(i, elements, element) - 2;
                 rootNode.add(hijo);
             } else if (element instanceof Rectangulo2) {
 
@@ -3124,144 +3124,18 @@ public class Mainp extends javax.swing.JFrame {
                 DefaultMutableTreeNode hijo = new DefaultMutableTreeNode();
                 hijo = construirArbol4(elements, i, hijo, element);
                 hijo.setUserObject(element);
-                i += returnIndice2(i, elements, element);
+                i+= returnIndice2(i, elements, element);
                 rootNode.add(hijo);
+                cont_ifno--;
             } else if (element instanceof Rectangulo) {
                 rootNode.add(new DefaultMutableTreeNode(element));
+            } else if (element instanceof if_fin) {
+                cont_iffin--;
+                continue;
             }
-            System.out.println("i: "+i);
+            System.out.println("i: " + i);
         }
         return tree;
-    }
-
-    private void addElementsRecursive(DefaultMutableTreeNode parentNode, ArrayList<Figura> elements, int i) {
-        if (i >= elements.size()) {
-            return;
-        }
-        Figura element = elements.get(i);
-        if (element instanceof Rombo) {
-            int endFigureIndex = findEndFigureIndex(elements, i + 1);
-            if (endFigureIndex != -1) {
-                DefaultMutableTreeNode romboNode = new DefaultMutableTreeNode(element);
-                parentNode.add(romboNode);
-                addElementsRecursive(romboNode, elements, i + 1);
-                i = endFigureIndex;
-            }
-        } else if (element instanceof Rectangulo2) {
-            fin_bucle fin_bucle = new fin_bucle();
-            int endFigureIndex = findEndFigureIndex(elements, i + 1);
-            if (endFigureIndex != -1) {
-                DefaultMutableTreeNode rectanguloNode = new DefaultMutableTreeNode(element);
-                parentNode.add(rectanguloNode);
-                addElementsRecursive(rectanguloNode, elements, i + 1);
-                i = endFigureIndex;
-            }
-        } else if (element instanceof if_no || element instanceof if_fin) {
-            DefaultMutableTreeNode elementNode = new DefaultMutableTreeNode(element);
-            parentNode.add(elementNode);
-        } else {
-            DefaultMutableTreeNode elementNode = new DefaultMutableTreeNode(element);
-            parentNode.add(elementNode);
-        }
-        addElementsRecursive(parentNode, elements, i + 1);
-    }
-
-    private int findEndFigureIndex(ArrayList<Figura> elements, int startIndex, Figura... endFigures) {
-        if (endFigures.length == 0) {
-            return -1;
-        }
-        int low = startIndex;
-        int high = elements.size() - 1;
-        while (low <= high) {
-            int mid = (low + high) / 2;
-            Figura element = elements.get(mid);
-            boolean found = false;
-            for (Figura endFigure : endFigures) {
-                if (endFigure.getClass().isInstance(element)) {
-                    found = true;
-                    break;
-                }
-            }
-            if (found) {
-                high = mid - 1;
-            } else {
-                low = mid + 1;
-            }
-        }
-        if (low > elements.size() - 1) {
-            return -1;
-        }
-        return low;
-    }
-
-    private int Bucle(Rectangulo2 P, int i) {
-        int num = 0;
-        for (int j = i + 1; j < figuras.size(); j++) {
-            if (j < figuras.size()) { // Agregar esta comprobación
-                if (figuras.get(j) instanceof Rombo) {
-                    Rombo x = ((Rombo) figuras.get(j));
-                    j += Sentencia(x, (j));
-                    P.agregarProceso(x);
-                } else if (figuras.get(j) instanceof fin_bucle) {
-                    return j;
-                } else {
-                    JLabel x = ((JLabel) figuras.get(j));
-                    P.agregarProceso(x);
-                }
-            }
-            System.out.println("Bucle");
-        }
-        return num;
-    }
-
-    private int Sentencia(Rombo P, int i) {
-        int num = 0;
-        /*LO ULTIMO QUE CAMBIE EN LA NOCHE*/
-        System.out.println("Valor de i (Sentencia): " + i);
-        boolean Bandera = false;
-        int Aumentar = 0;
-        if (i + 1 <= figuras.size() - 1) {
-            if (i + 1 < figuras.size()) { // Agregar esta comprobación
-                if (figuras.get(i + 1) instanceof Rectangulo2) {
-                    P.agregarSi(figuras.get(i + 1));
-                    i = Bucle(((Rectangulo2) figuras.get(i + 1)), i + 1);
-                    //Aumentar=1;
-                    Bandera = true;
-                } else {
-                    P.agregarSi(figuras.get(i + 1));
-                    Aumentar++;
-                }
-            }
-        }
-        if (i + 1 <= figuras.size() - 1) {
-            ArrayList<JLabel> nos = new ArrayList();
-            if (((JLabel) figuras.get(i + 1)) instanceof if_fin) {
-                // Lógica para manejar if_fin
-            } else {
-                if (Bandera) {
-                    if (i + 1 < figuras.size()) { // Agregar esta comprobación
-                        if (figuras.get(i + 1) instanceof if_no) {
-                            P.setNo(((if_no) figuras.get(i + 1)));
-                        }
-                    }
-                } else {
-                    if (i + 2 < figuras.size()) { // Agregar esta comprobación
-                        if (((JLabel) figuras.get(i + 2)) instanceof if_fin) {
-                            // Lógica para manejar if_fin
-                        } else {
-                            if (figuras.get(i + 2) instanceof if_no) {
-                                P.setNo(((if_no) figuras.get(i + 2)));
-                            }
-                        }
-                    }
-                    Aumentar++;
-                }
-            }
-        }
-        i += Aumentar;
-        num = i;
-        System.out.println("Valor de i (Sentencia): " + i);
-        return num;
     }
 
     private CustomPanel returnpadre(String nombre) {
@@ -3280,8 +3154,11 @@ public class Mainp extends javax.swing.JFrame {
             Figura element2 = elements.get(j);
             if (element2 instanceof if_no) {
                 if (((Rombo) element).getIndex() != ((if_no) element2).getIndex() && cont_ifno > 0) {
-                    hijo.add(new DefaultMutableTreeNode(element2));
-                    j++;
+                    DefaultMutableTreeNode hijo2 = new DefaultMutableTreeNode();
+                    hijo2 = construirArbol3(figuras, j, hijo2, element2);
+                    j+= returnIndice2(j, elements, element2);
+                    hijo2.setUserObject(element2);
+                    hijo.add(hijo2);
                 } else if (((Rombo) element).getIndex() == ((if_no) element2).getIndex()) {
                     break;
                 }
@@ -3300,7 +3177,7 @@ public class Mainp extends javax.swing.JFrame {
             } else {
                 hijo.add(new DefaultMutableTreeNode(element2));
             }
-            System.out.println("j:"+j);
+            System.out.println("j:" + j);
         }
         return hijo;
     }
@@ -3310,8 +3187,10 @@ public class Mainp extends javax.swing.JFrame {
             Figura element2 = elements.get(j);
             if (element2 instanceof Rombo) {
                 if (((if_no) element).getIndex() != ((Rombo) element2).getIndex() && cont_rombo > 0) {
-                    hijo.add(new DefaultMutableTreeNode(element2));
-                    j++;
+                    DefaultMutableTreeNode hijo2 = new DefaultMutableTreeNode();
+                    hijo2 = construirArbol3(elements, i, hijo, element2);
+                    hijo2.setUserObject(element2);
+                    j += returnIndice(i, elements, element2) - 2;
                 } else if (((if_no) element).getIndex() == ((Rombo) element2).getIndex()) {
                     break;
                 }
@@ -3324,7 +3203,7 @@ public class Mainp extends javax.swing.JFrame {
             } else if (element2 instanceof if_no) {
                 DefaultMutableTreeNode hijo2 = new DefaultMutableTreeNode();
                 hijo2 = construirArbol4(figuras, j, hijo2, element2);
-                j = returnIndice2(j, elements, element2);
+                j+= returnIndice2(j, elements, element2);
                 hijo2.setUserObject(element2);
                 hijo.add(hijo2);
             } else {
@@ -3527,20 +3406,12 @@ public class Mainp extends javax.swing.JFrame {
     public int returnIndice2(int i, ArrayList<Figura> elements, Figura element) {
         for (int j = i + 1; j < elements.size() - 1; j++) {
             Figura element2 = elements.get(j);
-            if (element2 instanceof if_no) {
-                if (((if_no) element).getIndex() != ((Rombo) element2).getIndex() && cont_ifno > 0) {
-                    i++;
-                } else if (((if_no) element).getIndex() == ((Rombo) element2).getIndex()) {
-                    break;
-                }
-            } else if (element2 instanceof if_fin) {
+            if (element2 instanceof if_fin) {
                 if (((if_no) element).getIndex() != ((if_fin) element2).getIndex() && cont_iffin > 0) {
-                    continue;
+                    i++;
                 } else if (((if_no) element).getIndex() == ((if_fin) element2).getIndex()) {
                     break;
                 }
-            } else if (element2 instanceof if_no) {
-                i++;
             } else {
                 i++;
             }
