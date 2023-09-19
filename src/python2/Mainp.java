@@ -3107,11 +3107,12 @@ public class Mainp extends javax.swing.JFrame {
         assignIndex(figuras);
         for (int i = 0; i < elements.size(); i++) {
             Figura element = elements.get(i);
+            System.out.println("i1: "+i);
             if (element instanceof Rombo) {
                 DefaultMutableTreeNode hijo = new DefaultMutableTreeNode();
                 hijo = construirArbol3(elements, i, hijo, element);
                 hijo.setUserObject(element);
-                i += returnIndice(i, elements, element);
+                i += returnIndice(i, elements, element)-2;
                 rootNode.add(hijo);
             } else if (element instanceof Rectangulo2) {
 
@@ -3128,6 +3129,7 @@ public class Mainp extends javax.swing.JFrame {
             } else if (element instanceof Rectangulo) {
                 rootNode.add(new DefaultMutableTreeNode(element));
             }
+            System.out.println("i: "+i);
         }
         return tree;
     }
@@ -3298,6 +3300,7 @@ public class Mainp extends javax.swing.JFrame {
             } else {
                 hijo.add(new DefaultMutableTreeNode(element2));
             }
+            System.out.println("j:"+j);
         }
         return hijo;
     }
