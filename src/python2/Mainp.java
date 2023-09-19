@@ -56,6 +56,7 @@ import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
 import java.util.Map;
 import javax.imageio.ImageIO;
+import javax.swing.tree.TreeNode;
 
 /**
  *
@@ -2322,25 +2323,8 @@ public class Mainp extends javax.swing.JFrame {
             texto1.setText(codigo);*/
             try {
 
-                System.out.println(Codigo);
-                for (int i = 0; i < figuras.size(); i++) {
-
-                    if (figuras.get(i) instanceof Rombo) {
-
-                        Rombo P = (Rombo) figuras.get(i);
-//                        i += if_code(P, figuras, i);
-                        Codigo += P.code() + "\n";
-                    } else if (figuras.get(i) instanceof Rectangulo2) {
-                        Rectangulo2 P = ((Rectangulo2) figuras.get(i));
-                        Codigo += P.code();
-
-                        System.out.println(Codigo);
-                    } else {
-                        Codigo += codigo2(figuras.get(i), "");
-                    }
-
-                }
-                texto1.setText(Codigo);
+                String C = imprimirNodo((TreeNode) jTree1.getModel().getRoot());
+                texto1.setText(C);
                 JOptionPane.showMessageDialog(canvas1, "Codigo Generado Exitosamente");
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(canvas1, "Ha ocurrido un error, revise las variables de los elementos");
@@ -2792,53 +2776,6 @@ public class Mainp extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jMenu6MouseClicked
 
-    private boolean estaDentroDelRectangulo(int x, int y) {
-        return (x >= 50 && x <= 125) && (y >= 50 && y <= 100);
-    }
-
-    /* private int if_code(Rombo P, ArrayList figuras, int i) {
-        int num = 0;
-        P.setSi(null);
-        P.setNo(null);
-        int Aumentar = 0;
-        boolean Bandera = false;
-
-        if (i + 1 <= figuras.size() - 1) {
-            if (figuras.get(i + 1) instanceof Rectangulo2) {
-                P.setSi((Rectangulo2) figuras.get(i + 1));
-                //   i = Bucle((Rectangulo2) figuras[i + 1], figuras, i + 1);
-                Bandera = true;
-            } else {
-                P.setSi((Figura) figuras.get(i + 1));
-                Aumentar++;
-            }
-        }
-
-        if (i + 1 <= figuras.size() - 1) {
-
-            if (figuras.get(i + 1) instanceof if_fin) {
-                // No hacer nada, continuar con el siguiente elemento
-            } else {
-                // Verificar si Bandera es true (indicando un SubProceso anterior)
-                if (Bandera) {
-                    P.setNo((JLabel) figuras.get(i + 1));
-                } else {
-                    // Verificar si el siguiente elemento después del actual es Fin_If
-                    if (figuras.get(i + 2) instanceof if_fin) {
-                        // No hacer nada, continuar con el siguiente elemento
-                    } else {
-                        P.setNo((JLabel) figuras.get(i + 2));
-                    }
-                    Aumentar++;
-                }
-            }
-        }
-
-        i += Aumentar;
-        num = i;
-        return num;
-
-    }*/
     private String codigo2(JLabel x, String codigo) {
         String z = "";
         if (x instanceof paralelogramo) {
@@ -2985,26 +2922,6 @@ public class Mainp extends javax.swing.JFrame {
         canvas_UML.repaint();
     }
 
-    public int indexFin(ArrayList<Figura> x) {
-        int index = 0;
-        for (Figura figura : x) {
-            if (figura instanceof if_fin) {
-                index = x.indexOf(figura);
-            }
-        }
-        return index;
-    }
-
-    public int indexElse(ArrayList<Figura> x) {
-        int index = 0;
-        for (Figura figura : x) {
-            if (figura instanceof if_no) {
-                index = x.indexOf(figura);
-            }
-        }
-        return index;
-    }
-
     public boolean verifyHerencia(String x) {
         int cont = 0;
         for (CustomPanel clase : clases) {
@@ -3108,32 +3025,41 @@ public class Mainp extends javax.swing.JFrame {
         for (int i = 0; i < elements.size(); i++) {
             Figura element = elements.get(i);
             System.out.println("i1: " + i);
+            System.out.println(element.getCode());
             if (element instanceof Rombo) {
                 DefaultMutableTreeNode hijo = new DefaultMutableTreeNode();
                 hijo = construirArbol3(elements, i, hijo, element);
                 hijo.setUserObject(element);
                 i += returnIndice(i, elements, element) - 2;
                 rootNode.add(hijo);
+                System.out.println("1");
             } else if (element instanceof Rectangulo2) {
-
+                DefaultMutableTreeNode hijo = new DefaultMutableTreeNode();
+                hijo = construirArbol5(elements, i, hijo, element);
+                hijo.setUserObject(element);
+                i += returnIndice3(i, elements, element) - 2;
+                rootNode.add(hijo);
+                System.out.println("2");
             } else if (element instanceof paralelogramo) {
                 rootNode.add(new DefaultMutableTreeNode(element));
+                System.out.println("3");
             } else if (element instanceof documento) {
                 rootNode.add(new DefaultMutableTreeNode(element));
+                System.out.println("4");
             } else if (element instanceof if_no) {
                 DefaultMutableTreeNode hijo = new DefaultMutableTreeNode();
                 hijo = construirArbol4(elements, i, hijo, element);
                 hijo.setUserObject(element);
-                i+= returnIndice2(i, elements, element);
+                i += returnIndice2(i, elements, element) - 2;
                 rootNode.add(hijo);
+                System.out.println("5");
                 cont_ifno--;
             } else if (element instanceof Rectangulo) {
+                System.out.println("6");
                 rootNode.add(new DefaultMutableTreeNode(element));
-            } else if (element instanceof if_fin) {
-                cont_iffin--;
-                continue;
             }
             System.out.println("i: " + i);
+            System.out.println(element.getCode());
         }
         return tree;
     }
@@ -3156,7 +3082,7 @@ public class Mainp extends javax.swing.JFrame {
                 if (((Rombo) element).getIndex() != ((if_no) element2).getIndex() && cont_ifno > 0) {
                     DefaultMutableTreeNode hijo2 = new DefaultMutableTreeNode();
                     hijo2 = construirArbol3(figuras, j, hijo2, element2);
-                    j+= returnIndice2(j, elements, element2);
+                    j += returnIndice2(j, elements, element2);
                     hijo2.setUserObject(element2);
                     hijo.add(hijo2);
                 } else if (((Rombo) element).getIndex() == ((if_no) element2).getIndex()) {
@@ -3172,6 +3098,12 @@ public class Mainp extends javax.swing.JFrame {
                 DefaultMutableTreeNode hijo2 = new DefaultMutableTreeNode();
                 hijo2 = construirArbol3(figuras, j, hijo2, element2);
                 j = returnIndice(j, elements, element2);
+                hijo2.setUserObject(element2);
+                hijo.add(hijo2);
+            } else if (element2 instanceof Rectangulo2) {
+                DefaultMutableTreeNode hijo2 = new DefaultMutableTreeNode();
+                hijo2 = construirArbol5(figuras, j, hijo2, element2);
+                j = returnIndice3(j, elements, element2);
                 hijo2.setUserObject(element2);
                 hijo.add(hijo2);
             } else {
@@ -3203,9 +3135,55 @@ public class Mainp extends javax.swing.JFrame {
             } else if (element2 instanceof if_no) {
                 DefaultMutableTreeNode hijo2 = new DefaultMutableTreeNode();
                 hijo2 = construirArbol4(figuras, j, hijo2, element2);
-                j+= returnIndice2(j, elements, element2);
+                j += returnIndice2(j, elements, element2);
                 hijo2.setUserObject(element2);
                 hijo.add(hijo2);
+            } else if (element2 instanceof Rectangulo2) {
+                DefaultMutableTreeNode hijo2 = new DefaultMutableTreeNode();
+                hijo2 = construirArbol5(figuras, j, hijo2, element2);
+                j = returnIndice3(j, elements, element2);
+                hijo2.setUserObject(element2);
+                hijo.add(hijo2);
+            } else {
+                hijo.add(new DefaultMutableTreeNode(element2));
+            }
+        }
+        return hijo;
+    }
+
+    public DefaultMutableTreeNode construirArbol5(ArrayList<Figura> elements, int i, DefaultMutableTreeNode hijo, Figura element) {
+        for (int j = i + 1; j < elements.size() - 1; j++) {
+            Figura element2 = elements.get(j);
+            if (element2 instanceof Rombo) {
+                if (((Rombo) element).getIndex() != ((if_no) element2).getIndex() && cont_ifno > 0) {
+                    DefaultMutableTreeNode hijo2 = new DefaultMutableTreeNode();
+                    hijo2 = construirArbol3(elements, i, hijo, element2);
+                    hijo2.setUserObject(element2);
+                    j += returnIndice(i, elements, element2) - 2;
+                } else if (((if_no) element).getIndex() == ((Rombo) element2).getIndex()) {
+                    break;
+                }
+            } else if (element2 instanceof if_no) {
+                DefaultMutableTreeNode hijo2 = new DefaultMutableTreeNode();
+                hijo2 = construirArbol4(figuras, j, hijo2, element2);
+                j += returnIndice2(j, elements, element2);
+                hijo2.setUserObject(element2);
+                hijo.add(hijo2);
+            } else if (element2 instanceof Rectangulo2) {
+                if (((Rectangulo2) element).getIndex() != ((fin_bucle) element2).getIndex() && cont_finbucle > 0) {
+                    DefaultMutableTreeNode hijo2 = new DefaultMutableTreeNode();
+                    hijo2 = construirArbol5(elements, i, hijo, element2);
+                    hijo2.setUserObject(element2);
+                    j += returnIndice3(i, elements, element2) - 2;
+                } else if (((Rectangulo2) element).getIndex() == ((fin_bucle) element2).getIndex()) {
+                    break;
+                }
+            } else if (element2 instanceof fin_bucle) {
+                if (((Rectangulo2) element).getIndex() != ((fin_bucle) element2).getIndex() && cont_finbucle > 0) {
+                    continue;
+                } else if (((if_no) element).getIndex() == ((if_fin) element2).getIndex()) {
+                    break;
+                }
             } else {
                 hijo.add(new DefaultMutableTreeNode(element2));
             }
@@ -3368,6 +3346,7 @@ public class Mainp extends javax.swing.JFrame {
     public void assignIndex(ArrayList<Figura> figuras) {
         int cont1 = cont_ifno;
         int cont2 = cont_iffin;
+        int cont3 = cont_finbucle;
         for (Figura figura : figuras) {
             if (figura instanceof if_no) {
                 ((if_no) figura).setIndex(cont1);
@@ -3376,6 +3355,10 @@ public class Mainp extends javax.swing.JFrame {
             if (figura instanceof if_fin) {
                 ((if_fin) figura).setIndex(cont2);
                 cont2--;
+            }
+            if (figura instanceof fin_bucle) {
+                ((fin_bucle) figura).setIndex(cont3);
+                cont3--;
             }
         }
     }
@@ -3419,6 +3402,70 @@ public class Mainp extends javax.swing.JFrame {
         return i;
     }
 
+    public int returnIndice3(int i, ArrayList<Figura> elements, Figura element) {
+        for (int j = i + 1; j < elements.size() - 1; j++) {
+            Figura element2 = elements.get(j);
+            if (element2 instanceof fin_bucle) {
+                if (((Rectangulo2) element).getIndex() != ((fin_bucle) element2).getIndex() && cont_finbucle > 0) {
+                    i++;
+                } else if (((Rectangulo2) element).getIndex() == ((fin_bucle) element2).getIndex()) {
+                    break;
+                }
+            } else {
+                i++;
+            }
+        }
+        return i;
+    }
+    
+
+    public String imprimirNodo(TreeNode nodo) {
+        String codigo = "";
+        for (int i = 0; i < nodo.getChildCount(); i++) {
+            Object v1 = nodo.getChildAt(i);
+            nodo_seleccionado = (DefaultMutableTreeNode) v1;
+            if (nodo_seleccionado.getUserObject() instanceof Rombo) {
+                codigo += tabulateString(((Rombo) nodo_seleccionado.getUserObject()).code());
+          
+            }
+            if (nodo_seleccionado.getUserObject() instanceof Rectangulo) {
+                codigo +=  tabulateString(((Rectangulo) nodo_seleccionado.getUserObject()).code());
+               
+            }
+            if (nodo_seleccionado.getUserObject() instanceof Rectangulo2) {
+                codigo += tabulateString( ((Rectangulo2) nodo_seleccionado.getUserObject()).code());
+             
+            }
+            if (nodo_seleccionado.getUserObject() instanceof documento) {
+                codigo += tabulateString( ((documento) nodo_seleccionado.getUserObject()).code());
+              
+            }
+            if (nodo_seleccionado.getUserObject() instanceof paralelogramo) {
+                codigo += tabulateString( ((paralelogramo) nodo_seleccionado.getUserObject()).code());
+               
+            }
+            if (nodo_seleccionado.getUserObject() instanceof if_no) {
+                codigo +=  tabulateString(((if_no) nodo_seleccionado.getUserObject()).code());
+             
+            }
+               codigo += "\n";
+        }
+        return codigo;
+    }
+    public static String tabulateString(String input) {
+        StringBuilder tabulated = new StringBuilder();
+
+        String[] lines = input.split("\n"); // Dividir el String en líneas
+
+        for (String line : lines) {
+            tabulated.append("\t"); // Agregar un tabulador al inicio de cada línea
+            tabulated.append(line);  // Agregar el contenido de la línea
+            tabulated.append("\n"); // Agregar un salto de línea al final de cada línea
+        }
+
+        return tabulated.toString();
+    }
+
     /**
      * @param args the command line arguments
      */
@@ -3453,6 +3500,7 @@ public class Mainp extends javax.swing.JFrame {
             }
         });
     }
+    DefaultMutableTreeNode nodo_seleccionado;
     ArrayList<Figura> figuras = new ArrayList();
     JLabel Label1 = null;
     int cont_circulo = 0;

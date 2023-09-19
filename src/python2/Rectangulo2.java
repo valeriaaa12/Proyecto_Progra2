@@ -30,6 +30,14 @@ public class Rectangulo2 extends Figura implements Serializable{
         this.index = index;
     }
 
+    public int getIndex() {
+        return index;
+    }
+
+    public void setIndex(int index) {
+        this.index = index;
+    }
+
     
     public Color getColor() {
         return color;
@@ -92,7 +100,7 @@ public class Rectangulo2 extends Figura implements Serializable{
         codigo += "for";
         codigo += " ";
         codigo += code;
-        codigo += " :";
+        codigo += "";
         if (procesos != null) {
             codigo += codigo(this.procesos);
         }

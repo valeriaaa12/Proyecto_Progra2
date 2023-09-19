@@ -61,9 +61,9 @@ public class documento extends Figura implements Serializable {
     @Override
     public String code() {
         String codigo="";
-        codigo+="print(";
+        codigo+="print(\"";
         codigo+=code;
-        codigo+=")";
+        codigo+="\")";
         return codigo;
     }
 
