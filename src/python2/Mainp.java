@@ -2893,7 +2893,7 @@ public class Mainp extends javax.swing.JFrame {
                     Drag(P, 1);
                     canvas1.add(P);
                 } else if (Label1 instanceof Circulo) {
-                   
+                    System.out.println("kkjsna");
                     Circulo P = new Circulo();
                     System.out.println(P.toString());
                     U.Copiar(P, Label1);
@@ -2915,10 +2915,9 @@ public class Mainp extends javax.swing.JFrame {
                     Drag(P, 1);
                     canvas1.add(P);
                 } else {
-
+                    System.out.println(Label1.getClass().toString());
                     Figura P = new Figura();
                     U.Copiar(P, Label1);
-
                     Drag(P, 1);
                     this.canvas1.add(P);
 
